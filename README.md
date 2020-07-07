@@ -10,4 +10,5 @@ cd my-laravel-app <br>
 composer install <br>
 cp .env.example .env <br>
 php artisan key:generate <br>
-http://localhost:8080/にアクセス
+以下URLにアクセス <br>
+http://localhost:8080/
