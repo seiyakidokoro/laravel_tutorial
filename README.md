@@ -1,7 +1,7 @@
 # laravel_tutorial
 研修用
 
-以下のコマンドを打ち、docker環境を構築
+以下のコマンドを打ち、docker環境を構築<br>
 git clone https://github.com/seiyakidokoro/laravel_tutorial.git
 docker-compose up -d
 docker-compose exec app bash
