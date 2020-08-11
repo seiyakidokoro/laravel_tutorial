@@ -12,11 +12,21 @@ Route::post('/task','TaskController@store');
 Route::get('/task/{task}/show','TaskController@show');
 
 // 編集
-Route::get('/task/{task}','TaskController@edit')->name('article_edit');
+Route::get('/task/{task}/edit','TaskController@edit')->name('task_edit');
 
 // タスク更新
-Route::put('/task/{task}','TaskController@update');
+Route::post('/task/','TaskController@update');
 
 // タスク削除
 Route::post('/task/{task}/delete','TaskController@destroy')->name('article_delete');
 
+// API
+Route::get('/api','ApiController@index');
+
+Route::post('/api','ApiController@index');
+
+// API
+Route::get('/api/get','ApiController@get');
+
+// Grid
+Route::get('/grid/','GridController@index');
