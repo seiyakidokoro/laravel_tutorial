@@ -25,6 +25,8 @@ Route::get('/api','ApiController@index');
 
 Route::post('/api','ApiController@index');
 
+Route::post('/api/all','ApiController@all');
+
 // API
 Route::get('/api/get','ApiController@get');
 

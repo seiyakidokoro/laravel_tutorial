@@ -79,7 +79,9 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         //
-
+        return view('tasks.edit', [
+            'task' => $task
+        ]);
     }
 
     /**
@@ -89,9 +91,12 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request)
     {
+        $task = Task::find($request->id);
+        $task->title = $request->title;
         $task->save();
+        return redirect('/task');
     }
 
     /**
