@@ -13,6 +13,8 @@
 </head>
 <body>
 <div id="app" class="layout">
+    <img @click="arrowUp" class="arrowUp" width="64" src="{{ asset('img/arrow_up.png') }}" alt="">
+    <img @click="arrowDown" class="arrowDown" width="64" src="{{ asset('img/arrow_down.png') }}" alt="">
     <div class="side">
         <div class="input-wrapper">
             <input type="text" placeholder="addContents" @keydown.enter="addContents" v-model="input_add_contents">
@@ -98,7 +100,6 @@
             }
         },
         methods:{
-
             // コンテンツの保存
             addContents: function(e){
                 if (e.keyCode !== 13) return
@@ -214,6 +215,12 @@
                 uttearnce.pitch = 1;
                 uttearnce.lang = 'ja-JP'
                 window.speechSynthesis.speak(uttearnce);
+            },
+            arrowUp: function(){
+                scrollBy(0, - 100);
+            },
+            arrowDown: function(){
+                scrollBy(0, 100);
             }
         },
         mounted:function(){
