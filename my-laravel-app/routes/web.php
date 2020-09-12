@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::get('/','ContentController@index');
 
 // タスクダッシュボード表示
 Route::get('/task','TaskController@index');

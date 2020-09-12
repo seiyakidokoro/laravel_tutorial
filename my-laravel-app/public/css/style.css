@@ -77,6 +77,20 @@ textarea {
 .my-parts span::after {
     transform: rotate(45deg);
 }
+.arrowUp{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 99;
+    transform: translateY(-100%);
+}
+.arrowDown{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 99;
+    transform: translateY(50%);
+}
 @media screen and (min-width : 768px) {
     .layout{
         display: flex;
