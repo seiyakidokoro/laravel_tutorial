@@ -45,6 +45,8 @@ Route::post('/api/save_content_detail','ApiController@save_content_detail');
 
 Route::post('/api/delete_content','ApiController@delete_content');
 
+Route::post('/api/delete_content_detail','ApiController@delete_content_detail');
+
 
 // Blog
 Route::get('/content/','ContentController@index');

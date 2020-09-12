@@ -18,13 +18,23 @@ class ApiController extends Controller
 
     public function content()
     {
-        $content = Content::where('deleted', '=',0)->get()->keyBy('id');
+        $query = Content::query();
+        $content = $query
+            ->where('deleted', '=',0)
+            ->get()
+            ->keyBy('id');
+
         return $content;
     }
 
     public function content_details(Request $request)
     {
-        $content_details = ContentDetail::where('content_id', '=', $request->content_id)->get();
+        $query = ContentDetail::query();
+        $content_details = $query
+            ->where('content_id', '=', $request->content_id)
+            ->where('deleted', '=', 0)
+            ->get();
+
         return $content_details;
     }
 
@@ -100,4 +110,18 @@ class ApiController extends Controller
         return $content;
     }
 
+    /**
+     * コンテンツ削除
+     * @param Request $request
+     */
+    public function delete_content_detail(Request $request)
+    {
+        $id = $request->id;
+
+        $content = ContentDetail::find($id);
+        $content->fill(['deleted' => 1]);
+        $content->save();
+
+        return $content;
+    }
 }
