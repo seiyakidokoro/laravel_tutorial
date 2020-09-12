@@ -24,7 +24,8 @@ textarea {
     width: 100%
 }
 .side{
-    width: 80%
+    width:70%;
+    margin: 0 auto;
 }
 .input-wrapper{
     margin-bottom: 20px;
