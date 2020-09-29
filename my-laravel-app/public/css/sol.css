@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 ul {
@@ -74,7 +75,8 @@ ul {
 
 .product-lineup-item{
     display: inline-block;
-    max-width: 100px;
+    width: 25%;
+    max-width: 100%;
     padding: 4px;
     cursor: pointer;
 }
