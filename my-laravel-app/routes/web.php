@@ -22,7 +22,7 @@ Route::post('/task/','TaskController@update');
 Route::post('/task/{task}/delete','TaskController@destroy')->name('article_delete');
 
 // Grid
-Route::get('/grid/','GridController@index');
+Route::get('/sol/','SolController@index');
 
 // API
 Route::get('/api','ApiController@index');

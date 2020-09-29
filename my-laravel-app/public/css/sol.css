@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    padding: 0 4%;
+}
+
+.logo{
+    text-align: center
+}
+
+.logo img{
+    width: 320px;
+}
+/*ヘッダー*/
+.header {
+    display: grid;
+    grid-template:
+                "companyLogo headerNav" auto / 30% 1fr;
+    padding: 10px 0;
+}
+
+.companyLogo {
+    font-size: 40px;
+    font-family: fantasy;
+    grid-area: companyLogo;
+}
+
+.headerNav {
+    grid-area: headerNav;
+    display: flex;
+    margin-left: auto;
+}
+
+.headerNav_item{
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.headerNav_item a{
+    color: #000;
+}
+.main {
+    display: grid;
+    grid-template:
+                "productName productName" auto
+                "productPhoto product-lineup" auto / 1.4fr 1fr
+}
+
+.productName{
+    grid-area: productName;
+}
+.productHead{
+    font-weight: bold;
+}
+
+.productPhoto{
+    grid-area: productPhoto;
+}
+
+.productPhoto img{
+    max-width: 450px;
+}
+
+.product-lineup{
+    grid-area: product-lineup;
+}
+
+.product-lineup-item{
+    display: inline-block;
+    max-width: 100px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.circle{
+    text-align: center;
+}
+
+.circle_item {
+    margin: 0 0.6em;
+    cursor: pointer;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.active {
+    background-color: black;
+}
+
+.buyBtnWrapper{
+    border-top: 2px solid;
+    padding: 20px;
+    text-align: center;
+}
+
+.buyBtn{
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    text-align: center;
+    padding: 8px 6px;
+}
