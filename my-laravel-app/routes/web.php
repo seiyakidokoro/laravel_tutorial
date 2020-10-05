@@ -53,3 +53,31 @@ Route::post('/api/delete_content_detail','ApiController@delete_content_detail');
 Route::get('/content/','ContentController@index');
 
 Route::get('/type/','TypeController@index');
+
+
+//管理画面
+Route::group(['prefix' => 'manager'], function () {
+	// 商品一覧表示
+	Route::get('/products','ProductController@index');
+
+
+	// 新規作成
+	Route::get('/product/new','ProductController@new');
+
+
+	// 新規商品作成
+	Route::post('/product','ProductController@store');
+
+
+	// 商品編集
+	Route::get('/product/{product}/edit','ProductController@edit')->name('product_edit');
+
+
+	// 商品更新
+	Route::post('/product/update','ProductController@update');
+
+
+	// 商品削除
+	Route::get('/product/{product}/delete','ProductController@delete')->name('product_delete');
+});
+
