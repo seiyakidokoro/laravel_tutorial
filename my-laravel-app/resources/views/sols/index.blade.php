@@ -48,11 +48,16 @@
                 <button class="buyBtn">Coinで購入する</button>
             </div>
         </div>
-{{--        <div>--}}
-{{--            製品情報--}}
-{{--            使い方--}}
-{{--            お取り扱い店舗--}}
-{{--        </div>--}}
+        <nav class="footerNav">
+            <div class="footerNav_tab">
+                <button class="footerNav_btn">ポイント1</button>
+                <button class="footerNav_btn active">ポイント2</button>
+                <button class="footerNav_btn">ポイント3</button>
+            </div>
+            <p class="footerNav_info">
+                吾輩 （ わがはい ） は猫である。名前はまだ無い。 どこで生れたかとんと 見当 （ けんとう ） がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあと ...
+            </p>
+        </nav>
     </div>
 
 @endsection
