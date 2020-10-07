@@ -25,6 +25,8 @@ Route::post('/task/{task}/delete','TaskController@destroy')->name('article_delet
 Route::get('/sol/','SolController@index');
 
 // API
+Route::get('/api/get_products','ApiController@get_products');
+
 Route::get('/api','ApiController@index');
 
 Route::post('/api','ApiController@index');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Product;
 use App\Content;
 use App\ContentDetail;
 use Illuminate\Http\Request;
@@ -123,5 +124,25 @@ class ApiController extends Controller
         $content->save();
 
         return $content;
+    }
+
+    /**
+     * productsの取得
+     * @return Task[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function get_products()
+    {
+        $products = Product::all()->keyBy('id');
+
+        foreach ($products as $key => $product){
+            $tmp[$key][] = 'storage/img/'.$product['image'];
+            $tmp[$key][] = 'storage/img/'.$product['image2'];
+            $tmp[$key][] = 'storage/img/'.$product['image3'];
+            $products[$key]['slider_images'] = $tmp[$key];
+
+//            $products[$key]['image'] ='storage/img/'.$products[$key]['image'];
+        }
+
+        return $products;
     }
 }

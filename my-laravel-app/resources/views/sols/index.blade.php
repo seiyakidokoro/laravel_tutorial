@@ -13,36 +13,21 @@
         <div class="logo">
             <img src="/img/sol.png" alt="しずおかオンラインのロゴ画像">
         </div>
-        <div class="main">
+        <div id="app" class="main">
             <div class="productName">
-                 <span class="productHead">No1うまい棒</span>
-                <p>うまい棒は、株式会社やおきんが日本で販売している棒状のスナック菓子。</p>
+                 <span class="productHead">No{% product_detail.id %}{% product_detail.name %}</span>
+                <p>{% product_detail.description %}</p>
             </div>
             <div class="productPhoto">
-                <img src="{{ asset('/img/umai.png') }}" alt="">
+                <img :src="slider_img">
             </div>
             <div class="product-lineup">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
-                <img class="product-lineup-item" src="https://placehold.jp/100x100.png" alt="">
+                <img v-for="product in products" class="product-lineup-item" :src="product.slider_images[0]" :key="product.id" @click="get_product_detail(product.id)">
             </div>
             <div class="circle">
-                <span class="circle_item active"></span>
-                <span class="circle_item "></span>
-                <span class="circle_item "></span>
+                <span class="circle_item" :class="{'active': isActive == 0}" @click="get_slider_image(0)"></span>
+                <span class="circle_item" :class="{'active': isActive == 1}" @click="get_slider_image(1)"></span>
+                <span class="circle_item" :class="{'active': isActive == 2}" @click="get_slider_image(2)"></span>
             </div>
             <div class="buyBtnWrapper">
                 <button class="buyBtn">Coinで購入する</button>
@@ -59,5 +44,40 @@
             </p>
         </nav>
     </div>
+    <script>
+        new Vue({
+            el: '#app',
+            delimiters: ['{%', '%}'],
+            data: {
+                products: {},
+                product_detail: '',
+                slider_img: '',
+                isActive: 0
+            },
+            mounted:function(){
+                axios.get('/api/get_products').then(res => {
+                    // 全ての商品を取得
+                    this.products = res.data
 
+                    // 最初の商品を取得
+                    if (res.data)
+                    {
+                        const first_key = Object.keys(res.data)[0];
+                        this.product_detail = res.data[first_key]
+                        this.slider_img = res.data[first_key]['slider_images'][0]
+                    }
+                });
+            },
+            methods:{
+                get_product_detail:function(product_id){
+                    this.product_detail = this.products[product_id]
+                    this.slider_img = this.products[product_id]['slider_images'][0]
+                },
+                get_slider_image:function(index){
+                    this.slider_img = this.product_detail['slider_images'][index]
+                    this.isActive = index
+                }
+            }
+        })
+    </script>
 @endsection
