@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::get('/vue', function () {
+    return view('vue');
+});
+
 Route::get('/','ContentController@index');
 
 // タスクダッシュボード表示
