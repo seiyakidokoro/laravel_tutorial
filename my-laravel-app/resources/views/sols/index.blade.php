@@ -1,6 +1,7 @@
 @extends('layouts.application')
 
 @section('content')
+{{--    {{ auth()->user()->name }}--}}
     <div class="container">
         <header class="header">
             <div class="companyLogo">SOL's Store</div>

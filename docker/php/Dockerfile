@@ -17,4 +17,9 @@ RUN apt-get update \
     && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo_mysql pdo_pgsql
 
+RUN pecl install xdebug \
+  && docker-php-ext-enable xdebug
+
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 WORKDIR /var/www/html

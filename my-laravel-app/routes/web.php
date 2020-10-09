@@ -83,3 +83,7 @@ Route::group(['prefix' => 'manager'], function () {
 	Route::get('/product/{product}/delete','ProductController@delete')->name('product_delete');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
