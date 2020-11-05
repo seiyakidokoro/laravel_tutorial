@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
 			$table->text('description')->nullable();
 			$table->integer('point');
 			$table->string('image');
+            $table->string('image2');
+            $table->string('image3');
 			$table->softDeletes();
 			$table->timestamp('updated_at')->useCurrent();
 			$table->timestamp('created_at')->useCurrent();
