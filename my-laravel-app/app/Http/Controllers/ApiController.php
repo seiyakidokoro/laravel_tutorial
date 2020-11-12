@@ -6,6 +6,7 @@ use App\Task;
 use App\Product;
 use App\Content;
 use App\ContentDetail;
+use http\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -134,13 +135,12 @@ class ApiController extends Controller
     {
         $products = Product::all()->keyBy('id');
 
+        $url = url('/');
         foreach ($products as $key => $product){
-            $tmp[$key][] = 'storage/img/'.$product['image'];
-            $tmp[$key][] = 'storage/img/'.$product['image2'];
-            $tmp[$key][] = 'storage/img/'.$product['image3'];
+            $tmp[$key][] = $url.$product['image'];
+            $tmp[$key][] = $url.$product['image2'];
+            $tmp[$key][] = $url.$product['image3'];
             $products[$key]['slider_images'] = $tmp[$key];
-
-//            $products[$key]['image'] ='storage/img/'.$products[$key]['image'];
         }
 
         return $products;
