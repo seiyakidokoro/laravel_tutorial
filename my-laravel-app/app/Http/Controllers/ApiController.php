@@ -137,9 +137,9 @@ class ApiController extends Controller
 
         $url = url('/');
         foreach ($products as $key => $product){
-            $tmp[$key][] = $url.$product['image'];
-            $tmp[$key][] = $url.$product['image2'];
-            $tmp[$key][] = $url.$product['image3'];
+            $tmp[$key][] = $url.'/storage/img/'.$product['image'];
+            $tmp[$key][] = $url.'/storage/img/'.$product['image2'];
+            $tmp[$key][] = $url.'/storage/img/'.$product['image3'];
             $products[$key]['slider_images'] = $tmp[$key];
         }
 
